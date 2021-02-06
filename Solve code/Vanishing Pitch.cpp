@@ -10,27 +10,16 @@
 using namespace std;
 
 int main(void){
-    //boost;
+    boost;
 
-    ll t,a,n,m,x,b,c,d,e,mx=0,cnt=1;
-        cin>>t;
+   ll a,t,b,c,d,k,r,n,m,x,y;
+        //cin>>t;
 read:
-    int bi[32],i=0;
+    cin>>a>>b>>c>>d;
 
-    while(t>0){
-
-        bi[i]=t%2;
-        t /=2;
-        i++;
-    }
-    for(int k=i-1; k>=0; k--){
-        if(bi[k]==1&&bi[k-1]==1){
-            cnt++;
-        }
-        else{
-            cnt=1;
-        }
-        mx=max(mx,cnt);
-    }
-    cout<<mx;
+    if(min(a*b,a*c)>d||max(a*b,a*c)<d) cout<<"Yes";
+    else cout<<"No";
 }
+
+
+
