@@ -10,27 +10,18 @@
 using namespace std;
 
 int main(void){
-    //boost;
+    boost;
 
-    ll t,a,n,m,x,b,c,d,e,mx=0,cnt=1;
-        cin>>t;
+    ll t,a,n,m,x,b,c,d,e,mx=0,mi=10e5,cnt=0;
+        cin>>n>>m;
 read:
-    int bi[32],i=0;
+    ll ar[n+5];
 
-    while(t>0){
+    for(int i=1; i<=n; i++){
+        cin>>ar[i];
 
-        bi[i]=t%2;
-        t /=2;
-        i++;
+        if(ar[i]>=m) cnt++;
     }
-    for(int k=i-1; k>=0; k--){
-        if(bi[k]==1&&bi[k-1]==1){
-            cnt++;
-        }
-        else{
-            cnt=1;
-        }
-        mx=max(mx,cnt);
-    }
-    cout<<mx;
+    cout<<cnt;
 }
+

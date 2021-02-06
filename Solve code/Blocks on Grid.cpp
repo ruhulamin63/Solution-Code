@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 #define ll          long long int
 #define nl          '\n'
@@ -12,25 +13,23 @@ using namespace std;
 int main(void){
     //boost;
 
-    ll t,a,n,m,x,b,c,d,e,mx=0,cnt=1;
-        cin>>t;
+    ll t,a,n,m,x,b,c,d,e,mx=0,mi=105,sum=0;
+        cin>>n>>m;
 read:
-    int bi[32],i=0;
+    ll ar[n+5][m+5];
 
-    while(t>0){
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=m; j++){
+            cin>>ar[i][j];
 
-        bi[i]=t%2;
-        t /=2;
-        i++;
-    }
-    for(int k=i-1; k>=0; k--){
-        if(bi[k]==1&&bi[k-1]==1){
-            cnt++;
+            mi=min(mi,ar[i][j]);
         }
-        else{
-            cnt=1;
-        }
-        mx=max(mx,cnt);
     }
-    cout<<mx;
+
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=m; j++){
+            sum +=ar[i][j]-mi;
+        }
+    }
+    cout<<sum;
 }

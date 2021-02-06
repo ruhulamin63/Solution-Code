@@ -10,27 +10,30 @@
 using namespace std;
 
 int main(void){
-    //boost;
+    boost;
 
-    ll t,a,n,m,x,b,c,d,e,mx=0,cnt=1;
-        cin>>t;
+   ll a,t,b,c,d,k,r,n,m,x,y,even1=0,odd1=0,f=0,even=0,odd=0;
+        //cin>>t;
 read:
-    int bi[32],i=0;
+    set<int>s;
+    map<ll,ll>mp;
 
-    while(t>0){
+    cin>>n>>m;
 
-        bi[i]=t%2;
-        t /=2;
-        i++;
+    ll ar[n+5],br[m+5];
+
+    for(int i=1; i<=n; i++){
+        cin>>ar[i];
+
+        if(ar[i]%2==0) even++;
+        else odd++;
     }
-    for(int k=i-1; k>=0; k--){
-        if(bi[k]==1&&bi[k-1]==1){
-            cnt++;
-        }
-        else{
-            cnt=1;
-        }
-        mx=max(mx,cnt);
+    for(int i=1; i<=m; i++){
+        cin>>br[i];
+
+        if(br[i]%2==0) even1++;
+        else odd1++;
     }
-    cout<<mx;
+    cout<<min(even,odd1)+min(odd,even1)<<nl;
 }
+
