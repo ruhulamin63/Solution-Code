@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 #define ll          long long int
 #define nl          '\n'
@@ -14,30 +15,17 @@ int main(void){
 
 
    ll a,t,b,c,d,k,r,n,m,x,y;
-        cin>>t;
+        //cin>>t;
 read:
-    while(t--){
-        cin>>a>>b>>n;
+    cin>>n;
 
-        ll ar[n+5],br[n+5],mx=0,mx1=0,mi;
+    ll ar[n+5];
 
-        for(int i=1; i<=n; i++){
-            cin>>ar[i];
-
-            mx=max(mx,ar[i]);
-        }
-        for(int j=1; j<=n; j++){
-            cin>>br[j];
-
-            mx1=max(mx1,br[j]);
-        }
-        //cout<<mx<<" "<<mx1<<nl;
-
-        mi=min(mx,mx1);
-
-        if(mi<=a||mi<=b) cout<<"YES\n";
-        else cout<<"NO\n";
+    cout<<n<<nl;
+    for(int i=1; i<=n; i++){
+        cout<<1<<" ";
     }
+    cout<<nl;
 }
 
 
