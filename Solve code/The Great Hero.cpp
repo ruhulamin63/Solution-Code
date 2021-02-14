@@ -18,7 +18,7 @@ read:
     while(t--){
         cin>>a>>b>>n;
 
-        pair<ll,ll>p[n];
+        pair<ll,ll>p[n+5];
 
         for(ll i=0; i<n; i++){
             cin>>p[i].first;
@@ -29,26 +29,37 @@ read:
         sort(p,p+n);
 
         ll ans=0;
+        bool check=false;
 
         for(ll i=0; i<n; i++){
             //cout<<p[i].first<<" ";
-            ans=(p[i].second/a)-(p[i].second%a==0);
+            if(p[i].second%a==0)
+                ans=(p[i].second/a);
+            else
+                ans=(p[i].second/a)+1;
 
-            b -=(ans*p[i].first);
+            b -=(ans-1)*p[i].first;
 
             if(b<=0){
-                cout<"NO\n";
+                check=true;
+                break;
+            }
+            if(i+1!=n){
+                 b -=p[i].first;
+                if(b<=0){
+                    check=true;
+                    break;
+                }
             }
         }
-        for(ll i=0; i<n; i++){
-            b -=p[i].first;
-
-            if(i+1!=n && b<=0){
-                cout<<"NO\n";
-                goto read;
-            }
-        }
-        cout<<"YES\n";
+        //cout<<b<<nl;
+        if(check) cout<<"NO\n";
+        else cout<<"YES\n";
     }
 }
-
+/*
+1
+3 17 1
+2
+16
+*/

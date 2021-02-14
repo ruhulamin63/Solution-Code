@@ -17,27 +17,32 @@ int main(void){
         cin>>t;
 read:
     while(t--){
-        cin>>a>>b>>n;
+        cin>>a>>b;
 
-        ll ar[n+5],br[n+5],mx=0,mx1=0,mi;
+        d=sqrt(a)+1;
 
-        for(int i=1; i<=n; i++){
-            cin>>ar[i];
+        if(a<b) cout<<"1\n";
+        else if(b>d) cout<<"2\n";
+        else{
+            ll cnt=0;
 
-            mx=max(mx,ar[i]);
+            if(b==1){
+                b++;
+                cnt=1;
+            }
+            ll ans=INT_MAX;
+
+            for(int i=b; i<=d; i++){
+                ll cnt1=i-b,q=a;
+
+                while(q!=0){
+                    q /=i;
+
+                    cnt1++;
+                }
+                ans=min(ans,cnt1);
+            }
+            cout<<ans+cnt<<nl;
         }
-        for(int j=1; j<=n; j++){
-            cin>>br[j];
-
-            mx1=max(mx1,br[j]);
-        }
-        //cout<<mx<<" "<<mx1<<nl;
-
-        mi=min(mx,mx1);
-
-        if(mi<=a||mi<=b) cout<<"YES\n";
-        else cout<<"NO\n";
     }
 }
-
-
