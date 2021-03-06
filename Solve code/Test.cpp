@@ -12,37 +12,28 @@ using namespace std;
 int main(void){
     boost;
 
-
    ll a,t,b,c,d,k,r,n,m,x,y;
         cin>>t;
+    string s;
+
 read:
     while(t--){
-        cin>>a>>b;
+        cin>>n>>k;
 
-        d=sqrt(a)+1;
+        ll ans;
+            ans=(n-k)+(k/2);
 
-        if(a<b) cout<<"1\n";
-        else if(b>d) cout<<"2\n";
+        if(ans==0) cout<<"0"<<nl;
         else{
-            ll cnt=0;
+            cout<<ans<<nl;
 
-            if(b==1){
-                b++;
-                cnt=1;
+            for(int i=k+1; i<=n; i++){
+                cout<<i<<" ";
             }
-            ll ans=INT_MAX;
-
-            for(int i=b; i<=d; i++){
-                ll cnt1=i-b,q=a;
-
-                while(q!=0){
-                    q /=i;
-
-                    cnt1++;
-                }
-                ans=min(ans,cnt1);
+            for(int j=k-1; j>=k-(k/2); j--){
+                cout<<j<<" ";
             }
-            cout<<ans+cnt<<nl;
+            cout<<nl;
         }
     }
 }
